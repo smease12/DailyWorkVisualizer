@@ -22,14 +22,17 @@ body {
 }
 
 table, td {
-  border: 1px solid black;
+  border: 1px solid white;
   border-collapse: collapse;
+  background-color: deepskyblue;
 }
 table, th{
   border-style: none;
+  background-color: white;
 }
 .leftCol {
   border-left: none; 
   border-top:none; 
   border-bottom:none;
+  background-color: white;
 }
