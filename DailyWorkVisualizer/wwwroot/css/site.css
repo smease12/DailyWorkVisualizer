@@ -41,19 +41,6 @@ table, th{
   border-bottom:none;
   background-color: white;
 }
-table, td:hover .toolTip {
-  visibility: visible;
-}
-.toolTip{
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
+form{
   text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
- 
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
 }
