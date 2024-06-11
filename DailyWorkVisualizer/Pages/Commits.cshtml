@@ -1,0 +1,15 @@
+﻿@page
+@model CommitsModel
+@{
+    ViewData["Title"] = "View All Progress Here";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+@foreach(var commit in Model.commits)
+{
+    <div>
+        <p>@commit.CommitDate</p>
+        <p>@commit.Description</p>
+    </div>
+}

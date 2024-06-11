@@ -18,16 +18,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/serena/Documents/DailyWorkVisualizer/DailyWorkVisualizer
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/serena/Documents/DailyWorkVisualizer/DailyWorkVisualizer/Pages/Commits.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29tbWl0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/serena/Documents/DailyWorkVisualizer/DailyWorkVisualizer/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/serena/Documents/DailyWorkVisualizer/DailyWorkVisualizer/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/serena/Documents/DailyWorkVisualizer/DailyWorkVisualizer/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/serena/Documents/DailyWorkVisualizer/DailyWorkVisualizer/Pages/Shared/_ValidationScriptsPartial.cshtml]
