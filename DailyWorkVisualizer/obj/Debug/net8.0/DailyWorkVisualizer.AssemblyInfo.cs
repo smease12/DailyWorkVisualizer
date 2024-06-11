@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DailyWorkVisualizer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c12633443370544f715fedb779b8a460b2f9e07")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24d44838b12de33ca0f74ff38b6cd679364d4d99")]
 [assembly: System.Reflection.AssemblyProductAttribute("DailyWorkVisualizer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DailyWorkVisualizer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
