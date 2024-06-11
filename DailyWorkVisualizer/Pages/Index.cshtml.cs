@@ -25,7 +25,7 @@ public class IndexModel : PageModel
     public void OnPost()
     {
         var emptyCommit = new Commit();
-        emptyCommit.CommitDate = DateTime.Today;
+        emptyCommit.CommitDate = DateTime.Now;
         emptyCommit.Description = this.description;
 
         _dailyWorkVisualizerContext.Commits.Add(emptyCommit);

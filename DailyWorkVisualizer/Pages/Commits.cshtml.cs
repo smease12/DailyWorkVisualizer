@@ -21,7 +21,7 @@ public class CommitsModel : PageModel
 
     public void OnGet()
     {
-        commits = _dailyWorkVisualizerContext.Commits.OrderBy(c => c.CommitDate).ToList();
+        commits = _dailyWorkVisualizerContext.Commits.OrderByDescending(c => c.CommitDate).ToList();
     }
 }
 
