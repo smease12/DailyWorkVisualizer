@@ -1,4 +1,4 @@
-﻿namespace DailyWorkVisualizer;
+﻿namespace DailyWorkVisualizer.Models;
 
 public class Commit
 {
