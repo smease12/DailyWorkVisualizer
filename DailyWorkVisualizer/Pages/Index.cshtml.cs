@@ -17,9 +17,11 @@ public class IndexModel : PageModel
     }
     [BindProperty]
     public string description {get; set;}
+    [BindProperty]
+    public List<Day> days {get; set;}
     public void OnGet()
     {
-
+        days = _dailyWorkVisualizerContext.Days.OrderByDescending(d => d.Date).ToList();
     }
 
     public void OnPost()
@@ -30,6 +32,5 @@ public class IndexModel : PageModel
 
         _dailyWorkVisualizerContext.Commits.Add(emptyCommit);
         _dailyWorkVisualizerContext.SaveChanges();
-
     }
 }

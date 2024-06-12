@@ -21,38 +21,10 @@
       </tr>
       <tr>
         <td class="leftCol">Sunday</td>
-        <td>&nbsp;</td>
-        <td>2</td> Sunday June 2nd 
-        <td>9</td> Sunday June 9th
-        <td>16</td> Sunday June 16th
-        <td>23</td> Sunday June 23rd
-        <td>30</td> Sunday June 30th
-        <td>7</td> Sunday July 7th
-        <td>14</td> Sunday July 14th
-        <td>21</td> Sunday July 21st
-        <td>28</td> Sunday July 28th
-        <td>4</td> Sunday August 4th
-        <td>11</td> Sunday August 11th
-        <td>18</td> Sunday August 18th
-        <td>25</td> Sunday August 25th
-        <td>1</td> Sunday September 1st
-        <td>8</td> Sunday September 8th
-        <td>15</td> Sunday September 15th
-        <td>22</td> Sunday September 22nd
-        <td>29</td> Sunday September 29th
-        <td>6</td> Sunday Ocotber 6th
-        <td>13</td> Sunday October 13th
-        <td>20</td> Sunday October 20th
-        <td>27</td> Sunday October 27th
-        <td>3</td> Sunday November 3rd
-        <td>10</td> Sunday November 10th
-        <td>17</td> Sunday November 17th
-        <td>24</td> Sunday November 24th
-        <td>1</td> Sunday December 1st
-        <td>8</td> Sunday December 8th
-        <td>15</td> Sunday December 15th
-        <td>22</td> Sunday December 22nd
-        <td>29</td> Sunday December 29th
+        <td class="grey">&nbsp;</td>
+       @foreach(var day in Model.days){
+          <td class="@day.Color"></td>
+       }
       </tr>
       <tr>
         <td class="leftCol">Monday</td>

@@ -41,6 +41,21 @@ table, th{
   border-bottom:none;
   background-color: white;
 }
+.grey {
+  background-color: #e6f7ff;
+}
+.underThreeCommits{
+  background-color: #cceeff;
+}
+.underFiveCommits{
+  background-color: #b3e6ff;
+}
+.underSevenCommits{
+  background-color: #99ddff;
+}
+.SevenPlusCommits{
+  background-color: #80d4ff;
+}
 form{
   text-align: center;
 }
