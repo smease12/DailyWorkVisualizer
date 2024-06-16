@@ -39,13 +39,23 @@ public class IndexModel : PageModel
         .OrderByDescending(d => d.Date).ToList();
     }
 
-    public void OnPost()
+    public void OnPostCommit()
     {
         var emptyCommit = new Commit();
         emptyCommit.CommitDate = DateTime.Now;
         emptyCommit.Description = this.description;
 
         _dailyWorkVisualizerContext.Commits.Add(emptyCommit);
+        _dailyWorkVisualizerContext.SaveChanges();
+    }
+
+        public void OnPostToDo()
+    {
+        var emptyToDo = new ToDo();
+        emptyToDo.ToDoDate = DateTime.Now;
+        emptyToDo.Description = this.description;
+
+        _dailyWorkVisualizerContext.ToDos.Add(emptyToDo);
         _dailyWorkVisualizerContext.SaveChanges();
     }
 }

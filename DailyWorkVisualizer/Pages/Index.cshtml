@@ -207,8 +207,13 @@
     </table> 
 
 <br/><br/>
-    <form method="post">
+    <form method="post" asp-page-handler="Commit">
       <p>Enter New Commit: </p>
       <p><textarea id="txt_input" name="description" rows="5" cols="45"></textarea></p>
+      <p><input type="submit"/></p>
+    </form>
+    <form method="post" asp-page-handler="ToDo">
+      <p>Enter New To-Do Item:</p>
+      <p><textarea id="txt_toDoInput" name="description" rows="5" cols="45"></textarea></p>
       <p><input type="submit"/></p>
     </form>
