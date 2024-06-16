@@ -2,6 +2,7 @@ using DailyWorkVisualizer.Data;
 using DailyWorkVisualizer.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace DailyWorkVisualizer.Pages;
 
@@ -31,31 +32,44 @@ public class IndexModel : PageModel
     public List<Day> fridays {get; set;}
     [BindProperty]
     public List<Day> saturdays {get; set;}
-    public void OnGet()
+    public async Task<IActionResult> OnGetAsync()
     {
-        sundays = _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Sunday")
+        loadDaysOftheWeek();
+        return Page();
+    }
+
+    public void loadDaysOftheWeek(){
+        sundays =  _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Sunday")
         .OrderByDescending(d => d.Date).ToList();
-        mondays = _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Monday")
+        mondays =  _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Monday")
         .OrderByDescending(d => d.Date).ToList();
     }
 
-    public void OnPostCommit()
+    public async Task<IActionResult> OnPostCommitAsync()
     {
         var emptyCommit = new Commit();
         emptyCommit.CommitDate = DateTime.Now;
         emptyCommit.Description = this.description;
 
-        _dailyWorkVisualizerContext.Commits.Add(emptyCommit);
-        _dailyWorkVisualizerContext.SaveChanges();
+        await _dailyWorkVisualizerContext.Commits.AddAsync(emptyCommit);
+        await _dailyWorkVisualizerContext.SaveChangesAsync();
+
+        loadDaysOftheWeek();
+
+        return Page();
     }
 
-        public void OnPostToDo()
+        public async Task<IActionResult> OnPostToDoAsync()
     {
         var emptyToDo = new ToDo();
         emptyToDo.ToDoDate = DateTime.Now;
         emptyToDo.Description = this.description;
 
-        _dailyWorkVisualizerContext.ToDos.Add(emptyToDo);
-        _dailyWorkVisualizerContext.SaveChanges();
+        await _dailyWorkVisualizerContext.ToDos.AddAsync(emptyToDo);
+        await _dailyWorkVisualizerContext.SaveChangesAsync();
+
+        loadDaysOftheWeek();
+        
+        return Page();
     }
 }
