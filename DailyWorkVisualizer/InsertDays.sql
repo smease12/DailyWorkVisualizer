@@ -1,8 +1,33 @@
-update days set color = 'grey'
+insert into Days (id, date, color, dayoftheweek) values
 
-
-
-
-
-
-
+(32,   '2024-06-03',	'grey',	'Monday'),
+(33,	'2024-06-10',	'grey',	'Monday'),
+(34,	'2024-06-17',	'grey',	'Monday'),
+(35,	'2024-06-24',	'grey',	'Monday'),
+(36,	'2024-07-01',	'grey',	'Monday'),
+(37,	'2024-07-08',	'grey',	'Monday'),
+(38,	'2024-07-15',	'grey',	'Monday'),
+(39,	'2024-07-22',	'grey',	'Monday'),
+(40,	'2024-07-29',	'grey',	'Monday'),
+(41,	'2024-08-05',	'grey',	'Monday'),
+(42,	'2024-08-12',	'grey',	'Monday'),
+(43,	'2024-08-19',	'grey',	'Monday'),
+(44,	'2024-08-26',	'grey',	'Monday'),
+(45,	'2024-09-02',	'grey',	'Monday'),
+(46,	'2024-09-09',	'grey',	'Monday'),
+(47,	'2024-09-16',	'grey',	'Monday'),
+(48,	'2024-09-23',	'grey',	'Monday'),
+(49,	'2024-09-30',	'grey',	'Monday'),
+(50,	'2024-10-07',	'grey',	'Monday'),
+(51,	'2024-10-14',	'grey',	'Monday'),
+(52,	'2024-10-21',	'grey',	'Monday'),
+(53,	'2024-10-28',	'grey',	'Monday'),
+(54,	'2024-11-04',	'grey',	'Monday'),
+(55,	'2024-11-11',	'grey',	'Monday'),
+(56,	'2024-11-18',	'grey',	'Monday'),
+(57,	'2024-11-25',	'grey',	'Monday'),
+(58,	'2024-12-02',	'grey',	'Monday'),
+(59,	'2024-12-09',	'grey',	'Monday'),
+(60,	'2024-12-16',	'grey',	'Monday'),
+(61,	'2024-12-23',	'grey',	'Monday'),
+(62,	'2024-12-30',	'grey',	'Monday')

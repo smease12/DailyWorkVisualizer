@@ -18,10 +18,25 @@ public class IndexModel : PageModel
     [BindProperty]
     public string description {get; set;}
     [BindProperty]
-    public List<Day> days {get; set;}
+    public List<Day> sundays {get; set;}
+    [BindProperty]
+    public List<Day> mondays {get; set;}
+    [BindProperty]
+    public List<Day> tuesdays {get; set;}
+    [BindProperty]
+    public List<Day> wednesdays {get; set;}
+    [BindProperty]
+    public List<Day> thursdays {get; set;}
+    [BindProperty]
+    public List<Day> fridays {get; set;}
+    [BindProperty]
+    public List<Day> saturdays {get; set;}
     public void OnGet()
     {
-        days = _dailyWorkVisualizerContext.Days.OrderByDescending(d => d.Date).ToList();
+        sundays = _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Sunday")
+        .OrderByDescending(d => d.Date).ToList();
+        mondays = _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Monday")
+        .OrderByDescending(d => d.Date).ToList();
     }
 
     public void OnPost()
