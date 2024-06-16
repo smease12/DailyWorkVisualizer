@@ -1,0 +1,15 @@
+@page
+@model ToDoModel
+@{
+    ViewData["Title"] = "To Do List";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+@foreach(var toDo in Model.toDos)
+{
+    <div>
+        <p>@toDo.ToDoDate</p>
+        <p>@toDo.Description</p>
+    </div>
+}
