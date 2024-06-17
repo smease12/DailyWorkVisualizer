@@ -45,6 +45,8 @@ public class IndexModel : PageModel
         .OrderByDescending(d => d.Date).ToList();
         tuesdays = _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Tuesday")
         .OrderByDescending(d => d.Date).ToList();
+        wednesdays = _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Wednesday")
+        .OrderByDescending(d => d.Date).ToList();
     }
 
     public async Task<IActionResult> OnPostCommitAsync()
