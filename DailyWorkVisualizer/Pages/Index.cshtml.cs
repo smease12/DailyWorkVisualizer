@@ -47,6 +47,10 @@ public class IndexModel : PageModel
         .OrderByDescending(d => d.Date).ToList();
         wednesdays = _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Wednesday")
         .OrderByDescending(d => d.Date).ToList();
+        thursdays = _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Thursday")
+        .OrderByDescending(d => d.Date).ToList();
+        fridays = _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Friday")
+        .OrderByDescending(d => d.Date).ToList();
     }
 
     public async Task<IActionResult> OnPostCommitAsync()
