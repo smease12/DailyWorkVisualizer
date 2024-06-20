@@ -25,6 +25,9 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+table{
+  width: 100%
+}
 
 table, td {
   border: 1px solid white;
@@ -43,6 +46,7 @@ table, th{
 }
 .grey {
   background-color: #e6f7ff;
+  width: 3%;
 }
 .underThreeCommits{
   background-color: #cceeff;

@@ -1,0 +1,19 @@
+
+WITH RECURSIVE dates(date) AS (
+  VALUES('2024-06-01')
+  UNION ALL
+  SELECT date(date, '+1 day')
+  FROM dates
+  WHERE date < '2024-12-31'
+)
+insert into Days (date, Color, DayOftheWeek)
+SELECT date , 'grey',
+  case cast (strftime('%w', date) as integer)
+  when 0 then 'Sunday'
+  when 1 then 'Monday'
+  when 2 then 'Tuesday'
+  when 3 then 'Wednesday'
+  when 4 then 'Thursday'
+  when 5 then 'Friday'
+  else 'Saturday' end as weekday
+FROM dates;
