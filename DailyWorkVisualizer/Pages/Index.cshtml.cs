@@ -3,6 +3,7 @@ using DailyWorkVisualizer.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
 namespace DailyWorkVisualizer.Pages;
 
@@ -61,12 +62,40 @@ public class IndexModel : PageModel
         emptyCommit.CommitDate = DateTime.Now;
         emptyCommit.Description = this.description;
 
+        string today = DateTime.Now.ToString("yyyy-MM-dd");
+        Day commitDay = _dailyWorkVisualizerContext.Days.Where(d => d.Date.ToString() == today)
+        .FirstOrDefault();
+        
+        emptyCommit.DayId = commitDay.Id;
+        if(commitDay.Commits == null)
+            commitDay.Color = getDayColor(1);
+        else
+            commitDay.Color = getDayColor(commitDay.Commits.Count + 1);
+
         await _dailyWorkVisualizerContext.Commits.AddAsync(emptyCommit);
         await _dailyWorkVisualizerContext.SaveChangesAsync();
 
         loadDaysOftheWeek();
 
         return Page();
+    }
+
+    public string getDayColor(int commitCount)
+    {
+        string toReturn = "";
+
+        if(commitCount < 1)
+            toReturn = "grey";
+        else if(commitCount < 3) 
+            toReturn = "underThreeCommits";
+        else if(commitCount < 5)
+            toReturn = "underFiveCommits";
+        else if(commitCount < 7)
+            toReturn = "underSevenCommits";
+        else if(commitCount > 7)
+            toReturn = "SevenPlusCommits";
+
+        return toReturn;
     }
 
         public async Task<IActionResult> OnPostToDoAsync()

@@ -50,15 +50,19 @@ table, th{
 }
 .underThreeCommits{
   background-color: #cceeff;
+  width: 3%;
 }
 .underFiveCommits{
   background-color: #b3e6ff;
+  width: 3%;
 }
 .underSevenCommits{
   background-color: #99ddff;
+  width: 3%;
 }
 .SevenPlusCommits{
   background-color: #80d4ff;
+  width: 3%;
 }
 form{
   text-align: center;
