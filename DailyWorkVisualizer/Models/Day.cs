@@ -8,4 +8,12 @@ public class Day
     public string DayOftheWeek {get; set;}
 
     public List<Commit> Commits {get; set;}
+
+    public int numCommits()
+    {
+        if(Commits == null)
+            return 0;
+        else
+            return this.Commits.Count;
+    }
 }

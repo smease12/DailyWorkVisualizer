@@ -23,48 +23,48 @@
         <td class="leftCol">Sunday</td>
         <td class="grey">&nbsp;</td>
        @foreach(var day in Model.sundays){
-          <td title=@day.Date class="@day.Color"></td>
+          <td title="@day.numCommits() commits on @day.Date.ToString("yyyy-MM-dd")" class="@day.Color"></td>
        }
       </tr>
       <tr>
         <td class="leftCol">Monday</td>
         <td class="grey">&nbsp;</td>
         @foreach(var day in Model.mondays){
-          <td title=@day.Date class="@day.Color"></td>
+          <td title="@day.numCommits() commits on @day.Date.ToString("yyyy-MM-dd")"  class="@day.Color"></td>
        }
       </tr>
       <tr>
         <td class="leftCol">Tuesday</td>
         <td class="grey">&nbsp;</td>
         @foreach(var day in Model.tuesdays){
-          <td title=@day.Date  class="@day.Color"></td>
+          <td title="@day.numCommits() commits on @day.Date.ToString("yyyy-MM-dd")"  class="@day.Color"></td>
         }
       </tr>
       <tr>
         <td class="leftCol">Wednesday</td>
         <td class="grey">&nbsp;</td>
         @foreach(var day in Model.wednesdays){
-          <td title=@day.Date  class="@day.Color"></td>
+          <td title="@day.numCommits() commits on @day.Date.ToString("yyyy-MM-dd")"  class="@day.Color"></td>
         }
       </tr>
       <tr>
         <td class="leftCol">Thursday</td>
         <td class="grey">&nbsp;</td>
         @foreach(var day in Model.thursdays){
-          <td title=@day.Date  class="@day.Color"></td>
+          <td title="@day.numCommits() commits on @day.Date.ToString("yyyy-MM-dd")"  class="@day.Color"></td>
         }
       </tr>
       <tr>
         <td class="leftCol">Friday</td>
         <td class="grey">&nbsp;</td>
          @foreach(var day in Model.fridays){
-          <td title=@day.Date  class="@day.Color"></td>
+          <td title="@day.numCommits() commits on @day.Date.ToString("yyyy-MM-dd")"  class="@day.Color"></td>
         }
       </tr>
       <tr>
         <td class="leftCol">Saturday</td>
          @foreach(var day in Model.saturdays){
-          <td title=@day.Date  class="@day.Color"></td>
+          <td title="@day.numCommits() commits on @day.Date.ToString("yyyy-MM-dd")"  class="@day.Color"></td>
         }
       </tr>
     </table> 
