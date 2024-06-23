@@ -41,19 +41,19 @@ public class IndexModel : PageModel
 
     public void loadDaysOftheWeek(){
         sundays =  _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Sunday")
-        .OrderByDescending(d => d.Date).ToList();
+        .OrderBy(d => d.Date).ToList();
         mondays =  _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Monday")
-        .OrderByDescending(d => d.Date).ToList();
+        .OrderBy(d => d.Date).ToList();
         tuesdays = _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Tuesday")
-        .OrderByDescending(d => d.Date).ToList();
+        .OrderBy(d => d.Date).ToList();
         wednesdays = _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Wednesday")
-        .OrderByDescending(d => d.Date).ToList();
+        .OrderBy(d => d.Date).ToList();
         thursdays = _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Thursday")
-        .OrderByDescending(d => d.Date).ToList();
+        .OrderBy(d => d.Date).ToList();
         fridays = _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Friday")
-        .OrderByDescending(d => d.Date).ToList();
+        .OrderBy(d => d.Date).ToList();
         saturdays = _dailyWorkVisualizerContext.Days.Where(d => d.DayOftheWeek == "Saturday")
-        .OrderByDescending(d => d.Date).ToList();
+        .OrderBy(d => d.Date).ToList();
     }
 
     public async Task<IActionResult> OnPostCommitAsync()

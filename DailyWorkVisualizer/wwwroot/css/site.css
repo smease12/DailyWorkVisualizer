@@ -26,7 +26,7 @@ body {
   margin-right: auto;
 }
 table{
-  width: 100%
+  width: 100%;
 }
 
 table, td {
@@ -67,3 +67,5 @@ table, th{
 form{
   text-align: center;
 }
+
+

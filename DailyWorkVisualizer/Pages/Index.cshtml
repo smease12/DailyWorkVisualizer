@@ -23,48 +23,48 @@
         <td class="leftCol">Sunday</td>
         <td class="grey">&nbsp;</td>
        @foreach(var day in Model.sundays){
-          <td class="@day.Color"></td>
+          <td title=@day.Date class="@day.Color"></td>
        }
       </tr>
       <tr>
         <td class="leftCol">Monday</td>
         <td class="grey">&nbsp;</td>
         @foreach(var day in Model.mondays){
-          <td class="@day.Color"></td>
+          <td title=@day.Date class="@day.Color"></td>
        }
       </tr>
       <tr>
         <td class="leftCol">Tuesday</td>
         <td class="grey">&nbsp;</td>
         @foreach(var day in Model.tuesdays){
-          <td class="@day.Color"></td>
+          <td title=@day.Date  class="@day.Color"></td>
         }
       </tr>
       <tr>
         <td class="leftCol">Wednesday</td>
         <td class="grey">&nbsp;</td>
         @foreach(var day in Model.wednesdays){
-          <td class="@day.Color"></td>
+          <td title=@day.Date  class="@day.Color"></td>
         }
       </tr>
       <tr>
         <td class="leftCol">Thursday</td>
         <td class="grey">&nbsp;</td>
         @foreach(var day in Model.thursdays){
-          <td class="@day.Color"></td>
+          <td title=@day.Date  class="@day.Color"></td>
         }
       </tr>
       <tr>
         <td class="leftCol">Friday</td>
         <td class="grey">&nbsp;</td>
          @foreach(var day in Model.fridays){
-          <td class="@day.Color"></td>
+          <td title=@day.Date  class="@day.Color"></td>
         }
       </tr>
       <tr>
         <td class="leftCol">Saturday</td>
          @foreach(var day in Model.saturdays){
-          <td class="@day.Color"></td>
+          <td title=@day.Date  class="@day.Color"></td>
         }
       </tr>
     </table> 
