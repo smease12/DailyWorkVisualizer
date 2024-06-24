@@ -15,4 +15,11 @@ public class ToDo
             return "Not Done";
     }
 
+    public string getStatusColor(){
+        if(isDone)
+            return "green";
+        else
+            return "red";
+    }
+
 }
