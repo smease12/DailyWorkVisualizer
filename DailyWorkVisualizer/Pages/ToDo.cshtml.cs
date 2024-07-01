@@ -23,5 +23,34 @@ public class ToDoModel : PageModel
     {
         toDos = _dailyWorkVisualizerContext.ToDos.OrderByDescending(c => c.ToDoDate).ToList();
     }
+
+    public async Task<IActionResult> OnPostMarkAsDone(int id)
+    {
+        var task = _dailyWorkVisualizerContext.ToDos.FirstOrDefault(t => t.Id == id);
+        if (task != null)
+        {
+            task.isDone = true;
+        }
+
+        _dailyWorkVisualizerContext.Update(task);
+        _dailyWorkVisualizerContext.SaveChanges();
+        toDos = _dailyWorkVisualizerContext.ToDos.OrderByDescending(c => c.ToDoDate).ToList();
+
+        return RedirectToPage();
+    }
+
+    public IActionResult OnPostDelete(int id)
+    {
+        var task = _dailyWorkVisualizerContext.ToDos.FirstOrDefault(t => t.Id == id);
+        if (task != null)
+        {
+            _dailyWorkVisualizerContext.ToDos.Remove(task);
+        }
+        _dailyWorkVisualizerContext.SaveChanges();
+        toDos = _dailyWorkVisualizerContext.ToDos.OrderByDescending(c => c.ToDoDate).ToList();
+
+
+        return RedirectToPage();
+    }
 }
 

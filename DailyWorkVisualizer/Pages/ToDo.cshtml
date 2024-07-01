@@ -10,6 +10,17 @@
 {
     <div>
         <p>@toDo.ToDoDate</p>
-        <p>@toDo.Description   &nbsp;&nbsp;&nbsp;&nbsp; <b style="color:@toDo.getStatusColor();">@toDo.getStatus()</b></p>
+        <p>
+            @toDo.Description   
+            &nbsp;&nbsp;&nbsp;&nbsp; 
+            <b style="color:@toDo.getStatusColor();">@toDo.getStatus()</b>
+            &nbsp;&nbsp;&nbsp;&nbsp; 
+             <form method="post" asp-page-handler="MarkAsDone" asp-route-id="@toDo.Id" style="display:inline;">
+                <button type="submit" class="btn btn-success">Mark as Done</button>
+            </form>
+            <form method="post" asp-page-handler="Delete" asp-route-id="@toDo.Id" style="display:inline;">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </p>
     </div>
 }
