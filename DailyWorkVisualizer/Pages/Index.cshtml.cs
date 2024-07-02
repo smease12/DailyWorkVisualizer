@@ -18,6 +18,8 @@ public class IndexModel : PageModel
         _dailyWorkVisualizerContext = dailyWorkVisualizerContext;
     }
     [BindProperty]
+    public string currentTaskDescription {get; set;}
+    [BindProperty]
     public string description {get; set;}
     [BindProperty]
     public List<Day> sundays {get; set;}
@@ -36,7 +38,17 @@ public class IndexModel : PageModel
     public async Task<IActionResult> OnGetAsync()
     {
         loadDaysOftheWeek();
+        loadCurrentTask();
         return Page();
+    }
+
+    public void loadCurrentTask(){
+        ToDo curToDo = _dailyWorkVisualizerContext.ToDos
+        .Where(t => t.isCurrentTask == true).FirstOrDefault();
+        if(curToDo != null)
+            currentTaskDescription = curToDo.Description;
+        else
+            currentTaskDescription = "";
     }
 
     public void loadDaysOftheWeek(){
@@ -76,6 +88,7 @@ public class IndexModel : PageModel
         await _dailyWorkVisualizerContext.SaveChangesAsync();
 
         loadDaysOftheWeek();
+        loadCurrentTask();
 
         return Page();
     }
@@ -108,7 +121,7 @@ public class IndexModel : PageModel
         await _dailyWorkVisualizerContext.SaveChangesAsync();
 
         loadDaysOftheWeek();
-        
+        loadCurrentTask();
         return Page();
     }
 }
