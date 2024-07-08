@@ -39,6 +39,25 @@ public class ToDoModel : PageModel
         return RedirectToPage();
     }
 
+    public IActionResult OnPostMarkAsCurrent(int id)
+    {
+        var task2 = _dailyWorkVisualizerContext.ToDos.Where(t => t.isCurrentTask == true).FirstOrDefault();
+        if(task2 != null)
+            task2.isCurrentTask = false;
+
+        var task = _dailyWorkVisualizerContext.ToDos.FirstOrDefault(t => t.Id == id);
+        if (task != null)
+            task.isCurrentTask = true;
+
+        _dailyWorkVisualizerContext.Update(task2);
+        _dailyWorkVisualizerContext.Update(task);
+        _dailyWorkVisualizerContext.SaveChanges();
+        
+        toDos = _dailyWorkVisualizerContext.ToDos.OrderByDescending(c => c.ToDoDate).ToList();
+
+        return RedirectToPage();
+    }
+
     public IActionResult OnPostDelete(int id)
     {
         var task = _dailyWorkVisualizerContext.ToDos.FirstOrDefault(t => t.Id == id);

@@ -18,9 +18,12 @@
              <form method="post" asp-page-handler="MarkAsDone" asp-route-id="@toDo.Id" style="display:inline;">
                 <button type="submit" class="btn btn-success">Mark as Done</button>
             </form>
+            <form method ="post" asp-page-handler="MarkAsCurrent" asp-route-id="@toDo.Id" style="display:inline:">
+                <button type="submit" class="btn btn-success">Mark As Current</button>
+            </form>   
             <form method="post" asp-page-handler="Delete" asp-route-id="@toDo.Id" style="display:inline;">
                 <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
+            </form> 
         </p>
     </div>
 }
