@@ -12,6 +12,7 @@ public class CommitsModel : PageModel
 
     [BindProperty]
     public List<Commit> commits {get; set;}
+    public List<string> dates {get; set;}
 
     public CommitsModel(ILogger<CommitsModel> logger, DailyWorkVisualizerContext dailyWorkVisualizerContext)
     {
@@ -22,6 +23,7 @@ public class CommitsModel : PageModel
     public void OnGet()
     {
         commits = _dailyWorkVisualizerContext.Commits.OrderByDescending(c => c.CommitDate).ToList();
+        dates = commits.Select(c =>c.CommitDate.ToString("yyyy/MM/dd")).Distinct().ToList();
     }
 }
 

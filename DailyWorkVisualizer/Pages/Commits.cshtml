@@ -5,11 +5,16 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-
-@foreach(var commit in Model.commits)
-{
-    <div>
-        <p>@commit.CommitDate</p>
-        <p>@commit.Description</p>
-    </div>
+@foreach(var date in Model.dates){
+    <h3>@date</h3>
+    @foreach(var commit in Model.commits)
+    {
+        if(commit.CommitDate.ToString("yyyy/MM/dd") == date){
+        <div>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp; @commit.CommitDate</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp; @commit.Description</p>
+        </div>
+        }
+    }
 }
+
