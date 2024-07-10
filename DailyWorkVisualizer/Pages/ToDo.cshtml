@@ -64,5 +64,11 @@
         </div>
     }
     </div>
-    <div class="column">This is where the form will go</div>
+    <div class="column">
+        <form method="post" asp-page-handler="ToDo">
+            <p>Enter New To-Do Item:</p>
+            <p><textarea id="txt_toDoInput" name="description" rows="5" cols="45"></textarea></p>
+            <p><input value="Add To-Do item" type="submit"/></p>
+        </form>
+    </div>
 </div>

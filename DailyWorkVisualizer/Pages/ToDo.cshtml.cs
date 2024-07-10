@@ -12,6 +12,8 @@ public class ToDoModel : PageModel
 
     [BindProperty]
     public List<ToDo> toDos {get; set;}
+    [BindProperty]
+    public string description {get; set;}
 
     public ToDoModel(ILogger<ToDoModel> logger, DailyWorkVisualizerContext dailyWorkVisualizerContext)
     {
@@ -41,6 +43,24 @@ public class ToDoModel : PageModel
         return RedirectToPage();
     }
 
+    public string getDayColor(int commitCount)
+    {
+        string toReturn = "";
+
+        if(commitCount < 1)
+            toReturn = "grey";
+        else if(commitCount < 3) 
+            toReturn = "underThreeCommits";
+        else if(commitCount < 5)
+            toReturn = "underFiveCommits";
+        else if(commitCount < 7)
+            toReturn = "underSevenCommits";
+        else if(commitCount > 7)
+            toReturn = "SevenPlusCommits";
+
+        return toReturn;
+    }
+
     public void createCommit(ToDo task){
         var emptyCommit = new Commit();
         emptyCommit.CommitDate = DateTime.Now;
@@ -50,6 +70,11 @@ public class ToDoModel : PageModel
         Day commitDay = _dailyWorkVisualizerContext.Days.Where(d => d.Date.ToString() == today)
         .FirstOrDefault();
         emptyCommit.DayId = commitDay.Id;
+
+        if(commitDay.Commits == null)
+            commitDay.Color = getDayColor(1);
+        else
+            commitDay.Color = getDayColor(commitDay.Commits.Count + 1);
 
         _dailyWorkVisualizerContext.Commits.Add(emptyCommit);
     }
@@ -85,6 +110,20 @@ public class ToDoModel : PageModel
 
 
         return RedirectToPage();
+    }
+
+    public async Task<IActionResult> OnPostToDoAsync()
+    {
+        var emptyToDo = new ToDo();
+        emptyToDo.ToDoDate = DateTime.Now;
+        emptyToDo.Description = this.description;
+
+        await _dailyWorkVisualizerContext.ToDos.AddAsync(emptyToDo);
+        await _dailyWorkVisualizerContext.SaveChangesAsync();
+
+        toDos = _dailyWorkVisualizerContext.ToDos.OrderByDescending(c => c.ToDoDate).ToList();
+
+        return Page();
     }
 }
 
