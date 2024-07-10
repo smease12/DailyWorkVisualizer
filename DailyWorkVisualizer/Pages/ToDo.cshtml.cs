@@ -32,11 +32,26 @@ public class ToDoModel : PageModel
             task.isDone = true;
         }
 
+        createCommit(task);
+
         _dailyWorkVisualizerContext.Update(task);
         _dailyWorkVisualizerContext.SaveChanges();
         toDos = _dailyWorkVisualizerContext.ToDos.OrderByDescending(c => c.ToDoDate).ToList();
 
         return RedirectToPage();
+    }
+
+    public void createCommit(ToDo task){
+        var emptyCommit = new Commit();
+        emptyCommit.CommitDate = DateTime.Now;
+        emptyCommit.Description = task.Description;
+
+        string today = DateTime.Now.ToString("yyyy-MM-dd");
+        Day commitDay = _dailyWorkVisualizerContext.Days.Where(d => d.Date.ToString() == today)
+        .FirstOrDefault();
+        emptyCommit.DayId = commitDay.Id;
+
+        _dailyWorkVisualizerContext.Commits.Add(emptyCommit);
     }
 
     public IActionResult OnPostMarkAsCurrent(int id)
