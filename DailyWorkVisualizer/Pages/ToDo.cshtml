@@ -5,58 +5,64 @@
 }
 <h1>@ViewData["Title"]</h1>
 <br />
-<h4>Not Done Tasks</h4>
-@foreach(var toDo in Model.toDos.Where(t => t.isDone != true))
-{
-    <div>
-        <p>@toDo.ToDoDate</p>
-        <p>
-            @toDo.Description   
-            &nbsp;&nbsp;&nbsp;&nbsp; 
-            <b style="color:@toDo.getStatusColor();">@toDo.getStatus()</b>
-            &nbsp;&nbsp;&nbsp;&nbsp; 
-             <form method="post" asp-page-handler="MarkAsDone" asp-route-id="@toDo.Id" style="display:inline;">
-                <button type="submit" class="btn btn-success">Mark as Done</button>
-            </form>
-            @if(toDo.isCurrentTask){
-                <b style="display:inline;">This is the current task!</b>
-            }
-            else{
-            <form method ="post" asp-page-handler="MarkAsCurrent" asp-route-id="@toDo.Id" style="display:inline;">
-                <button type="submit" class="btn btn-success">Mark As Current</button>
-            </form> 
-            }  
-            <form method="post" asp-page-handler="Delete" asp-route-id="@toDo.Id" style="display:inline;">
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form> 
-        </p>
+
+<div class ="row">
+    <div class="column">
+    <h4>Not Done Tasks</h4>
+    @foreach(var toDo in Model.toDos.Where(t => t.isDone != true))
+    {
+        <div>
+            <p>@toDo.ToDoDate</p>
+            <p>
+                @toDo.Description   
+                &nbsp;&nbsp;&nbsp;&nbsp; 
+                <b style="color:@toDo.getStatusColor();">@toDo.getStatus()</b>
+                &nbsp;&nbsp;&nbsp;&nbsp; 
+                <form method="post" asp-page-handler="MarkAsDone" asp-route-id="@toDo.Id" style="display:inline;">
+                    <button type="submit" class="btn btn-success">Mark as Done</button>
+                </form>
+                @if(toDo.isCurrentTask){
+                    <b style="display:inline;">This is the current task!</b>
+                }
+                else{
+                <form method ="post" asp-page-handler="MarkAsCurrent" asp-route-id="@toDo.Id" style="display:inline;">
+                    <button type="submit" class="btn btn-success">Mark As Current</button>
+                </form> 
+                }  
+                <form method="post" asp-page-handler="Delete" asp-route-id="@toDo.Id" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form> 
+            </p>
+        </div>
+    }
+    <br /><br />
+    <h4>Finished Tasks</h4>
+    @foreach(var toDo in Model.toDos.Where(t => t.isDone == true))
+    {
+        <div>
+            <p>@toDo.ToDoDate</p>
+            <p>
+                @toDo.Description   
+                &nbsp;&nbsp;&nbsp;&nbsp; 
+                <b style="color:@toDo.getStatusColor();">@toDo.getStatus()</b>
+                &nbsp;&nbsp;&nbsp;&nbsp; 
+                <form method="post" asp-page-handler="MarkAsDone" asp-route-id="@toDo.Id" style="display:inline;">
+                    <button type="submit" class="btn btn-success">Mark as Done</button>
+                </form>
+                @if(toDo.isCurrentTask){
+                    <b style="display:inline;">This is the current task!</b>
+                }
+                else{
+                <form method ="post" asp-page-handler="MarkAsCurrent" asp-route-id="@toDo.Id" style="display:inline;">
+                    <button type="submit" class="btn btn-success">Mark As Current</button>
+                </form> 
+                }    
+                <form method="post" asp-page-handler="Delete" asp-route-id="@toDo.Id" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form> 
+            </p>
+        </div>
+    }
     </div>
-}
-<br /><br />
-<h4>Finished Tasks</h4>
-@foreach(var toDo in Model.toDos.Where(t => t.isDone == true))
-{
-    <div>
-        <p>@toDo.ToDoDate</p>
-        <p>
-            @toDo.Description   
-            &nbsp;&nbsp;&nbsp;&nbsp; 
-            <b style="color:@toDo.getStatusColor();">@toDo.getStatus()</b>
-            &nbsp;&nbsp;&nbsp;&nbsp; 
-             <form method="post" asp-page-handler="MarkAsDone" asp-route-id="@toDo.Id" style="display:inline;">
-                <button type="submit" class="btn btn-success">Mark as Done</button>
-            </form>
-            @if(toDo.isCurrentTask){
-                <b style="display:inline;">This is the current task!</b>
-            }
-            else{
-            <form method ="post" asp-page-handler="MarkAsCurrent" asp-route-id="@toDo.Id" style="display:inline;">
-                <button type="submit" class="btn btn-success">Mark As Current</button>
-            </form> 
-            }  
-            <form method="post" asp-page-handler="Delete" asp-route-id="@toDo.Id" style="display:inline;">
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form> 
-        </p>
-    </div>
-}
+    <div class="column">This is where the form will go</div>
+</div>
