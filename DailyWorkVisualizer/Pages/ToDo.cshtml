@@ -4,6 +4,7 @@
     ViewData["Title"] = "To Do List";
 }
 <h1>@ViewData["Title"]</h1>
+<h5>*Marking a to-do item as complete creates a commit</h5>
 <br />
 
 <div class ="row">
@@ -64,7 +65,7 @@
         </div>
     }
     </div>
-    <div class="column">
+    <div class="column" style="position:fixed; left: 50%;">
         <form method="post" asp-page-handler="ToDo">
             <p>Enter New To-Do Item:</p>
             <p><textarea id="txt_toDoInput" name="description" rows="5" cols="45"></textarea></p>
