@@ -79,3 +79,8 @@ form{
   clear: both;
 }
 
+.successfulPopup{
+  text-align: center;
+  color: black;
+  background-color: lightgreen;
+}

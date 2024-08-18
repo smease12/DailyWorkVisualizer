@@ -90,6 +90,8 @@ public class IndexModel : PageModel
         loadDaysOftheWeek();
         loadCurrentTask();
 
+        ViewData["message"] = "Commit added successfully!";
+
         return Page();
     }
 
@@ -122,6 +124,8 @@ public class IndexModel : PageModel
 
         loadDaysOftheWeek();
         loadCurrentTask();
+
+        ViewData["message"] = "To-do item added successfully!";
         return Page();
     }
 }
